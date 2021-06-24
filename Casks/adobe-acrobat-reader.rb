@@ -1,8 +1,8 @@
 cask "adobe-acrobat-reader" do
-  version "21.005.20048"
-  sha256 "8af09c35124270046f0634bcecd43933f5fbf0752f44bc2e8f5818ced514acd2"
+  version "21.005.20054"
+  sha256 "87a005ac17c3d921659fb43d4ffa9206466bb47ba68741f1be8d1e0f8d77e98d"
 
-  url "https://ardownload2.adobe.com/pub/adobe/reader/mac/AcrobatDC/#{version.no_dots}/AcroRdrDC_#{version.no_dots}_MUI.dmg"
+  url "https://ardownload2.adobe.com/pub/adobe/reader/mac/AcrobatDC/#{version.no_dots}/AcroRdrDCUpd#{version.no_dots}_MUI.dmg"
   name "Adobe Acrobat Reader DC"
   desc "View, print, and comment on PDF documents"
   homepage "https://acrobat.adobe.com/us/en/acrobat/pdf-reader.html"
