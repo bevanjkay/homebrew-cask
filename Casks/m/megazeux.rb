@@ -8,6 +8,24 @@ cask "megazeux" do
   desc "ASCII-based game creation system"
   homepage "https://www.digitalmzx.com/"
 
+  # Releases often do not have MacOS binaries for some time after release
+  livecheck do
+    url :url
+    regex(/^mzxv?(\d+(?:\.\d+)?+[a-f]?)[._-]intel.*?\.(?:dmg|pkg|zip)$/i)
+    strategy :github_releases do |json, regex|
+      json.map do |release|
+        next if release["draft"] || release["prerelease"]
+
+        release["assets"]&.map do |asset|
+          match = asset["name"]&.match(regex)
+          next if match.blank?
+
+          "#{match[1][0]}.#{match[1][1..]}"
+        end
+      end.flatten
+    end
+  end
+
   app "MegaZeux.app"
   artifact "Documentation", target: "~/Library/Application Support/MegaZeux/Documentation"
 
